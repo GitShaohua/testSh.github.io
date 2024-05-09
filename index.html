@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="father">
+    <div class="resize"></div>
+    <div id="item" class="item" title="123"></div>
+  </div>
+  
+  <button onclick="showItem()">显示</button>
+  <button onclick="closeItem()">关闭</button>
+</body>
+<script>
+ function showItem(){
+  document.getElementById("item").classList.remove("colseDiv")
+  document.getElementById("item").classList.add("openDiv")
+ }
+ function closeItem(){
+  document.getElementById("item").classList.remove("openDiv")
+  document.getElementById("item").classList.add("colseDiv")
+}
+
+</script>
+<style>
+  .father {
+    position: relative;
+  }
+  .father .resize {
+    position: absolute;
+    right: 0;
+    resize: vertical;
+    /* transform: rotateX(180deg); */
+    background-color: green;
+    width: 50px;
+    height: 50px;
+  }
+  .father .item {
+    position: absolute;
+    left: 0;
+  width: 300px;
+  height: 600px;
+  background-color: red;
+ 
+  }
+
+
+/* 属性 */
+  .colseDiv {
+    animation: colse 2s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+ .openDiv {
+    animation: open 2s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+ }
+ /* 定义动画效果 */
+  @keyframes colse {
+  0% {
+    transform: translate(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-500px);
+    opacity: 0;
+  }
+ } 
+ @keyframes open {
+  0% {
+    transform: translate(-500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1;
+  }
+ } 
+</style>
+</html>
